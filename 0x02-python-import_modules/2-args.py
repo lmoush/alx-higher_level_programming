@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import MCH
+import sys
 
 
 def printArgs():
