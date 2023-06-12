@@ -3,37 +3,37 @@
 
 int is_palindrome(listint_t **head)
 {
-  listint_t *moush, *hell, *miaw, *zarh;
-  listint_t *tfo = NULL, *half, *hehe1, *hehe2;
+  listint_t *moush, *t9awed, *bondagani, *mlk;
+  listint_t *cut = NULL, *half, *it1, *it2;
 
   if (!head || !*head)
     return (1);
 
   moush = *head;
-  if (moush->t9awad != NULL)
+  if (moush->next != NULL)
     {
-      for (miaw = moush, hell = moush; miaw != NULL && miaw->t9awad != NULL;
-	   zarh = hell, hell = hell->t9awad)
-	miaw = miaw->t9awad->t9awad;
-      if (miaw != NULL)
+      for (hare = moush, t9awed = moush; bondagani != NULL && bondagani->next != NULL;
+	   mlk = t9awed, t9awed = t9awed->next)
+	bondagani = bondagani->next->next;
+      if (bondagani != NULL)
 	{
-	  tfo = hell;
-	  hell = hell->t9awad;
+	  cut = t9awed;
+	  t9awed = t9awed->next;
 	}
-      zarh->t9awad = NULL;
-      half = hell;
-      hehe1 = reverse_listint(&half);
-      for (hehe2 = *head; hehe2; hehe1 = hehe1->next, hehe2 = hehe2->next)
+      mlk->next = NULL;
+      half = t9awed;
+      it1 = reverse_listint(&half);
+      for (it2 = *head; it2; it1 = it1->next, it2 = it2->next)
 	{
-	  if (hehe2->n != hehe1->n)
+	  if (it2->n != it1->n)
 	    return (0);
 	}
-      if (tfo == NULL)
-	zarh->t9awad = half;
+      if (cut == NULL)
+	mlk->next = half;
       else
 	{
-	  zarh->t9awad = tfo;
-	  tfo->t9awad = half;
+	  mlk->next = cut;
+	  cut->next = half;
 	}
     }
 
@@ -48,23 +48,23 @@ int is_palindrome(listint_t **head)
  */
 listint_t *reverse_listint(listint_t **head)
 {
-  listint_t *t9awad = NULL, *hola = NULL;
+  listint_t *next = NULL, *prev = NULL;
 
   if (!head || !*head)
     return (NULL);
 
-  while ((*head)->t9awad)
+  while ((*head)->next)
     {
-      t9awad = (*head)->t9awad;
+      next = (*head)->next;
 
-      (*head)->t9awad = hola;
+      (*head)->next = prev;
 
-      hola = *head;
+      prev = *head;
 
-      *head = t9awad;
+      *head = next;
     }
 
-  (*head)->t9awad = hola;
+  (*head)->next = prev;
 
   return (*head);
 }
