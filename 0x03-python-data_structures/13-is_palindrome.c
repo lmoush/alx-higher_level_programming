@@ -3,25 +3,25 @@
 
 int is_palindrome(listint_t **head)
 {
-  listint_t *moush, *t9awed, *bondagani, *mlk;
+  listint_t *nhead, *tort, *hare, *ptort;
   listint_t *cut = NULL, *half, *it1, *it2;
 
   if (!head || !*head)
     return (1);
 
-  moush = *head;
-  if (moush->next != NULL)
+  nhead = *head;
+  if (nhead->next != NULL)
     {
-      for (hare = moush, t9awed = moush; bondagani != NULL && bondagani->next != NULL;
-	   mlk = t9awed, t9awed = t9awed->next)
-	bondagani = bondagani->next->next;
-      if (bondagani != NULL)
+      for (hare = nhead, tort = nhead; hare != NULL && hare->next != NULL;
+	   ptort = tort, tort = tort->next)
+	hare = hare->next->next;
+      if (hare != NULL)
 	{
-	  cut = t9awed;
-	  t9awed = t9awed->next;
+	  cut = tort;
+	  tort = tort->next;
 	}
-      mlk->next = NULL;
-      half = t9awed;
+      ptort->next = NULL;
+      half = tort;
       it1 = reverse_listint(&half);
       for (it2 = *head; it2; it1 = it1->next, it2 = it2->next)
 	{
@@ -29,10 +29,10 @@ int is_palindrome(listint_t **head)
 	    return (0);
 	}
       if (cut == NULL)
-	mlk->next = half;
+	ptort->next = half;
       else
 	{
-	  mlk->next = cut;
+	  ptort->next = cut;
 	  cut->next = half;
 	}
     }
