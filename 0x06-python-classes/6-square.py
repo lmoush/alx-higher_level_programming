@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Square module.
-lmoush is the best pr in future , i will be one day """
+i will be the best one day.
+"""
+
 
 class Square():
     """Defines a square."""
@@ -57,3 +59,4 @@ class Square():
                 print('#' * self.__size)
         else:
             print()
+
