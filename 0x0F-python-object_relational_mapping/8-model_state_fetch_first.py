@@ -1,22 +1,19 @@
 #!/usr/bin/python3
-"""prints the first State object from the database hbtn_0e_6_usa"""
+"""show first result from table"""
+from sqlalchemy import String, Integer, Column
+from sqlalchemy.ext.declarative import declarative_base
+from model_state import Base, State
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+import sys
 
 if __name__ == "__main__":
-
-    import sys
-    from model_state import Base, State
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import Session
-
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2],
-                                   sys.argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-
-    session = Session(engine)
-    first = session.query(State).order_by(State.id).first()
-    if first:
-        print("{}: {}".format(first.id, first.name))
-    else:
+    connect = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+            sys.argv[1], sys.argv[2], sys.argv[3],), pool_pre_ping=True)
+    Session = sessionmaker(connect)
+    new_session = Session()
+    first_result = new_session.query(State).first()
+    if not first_result:
         print("Nothing")
-    session.close()
+    else:
+        print(first_result.id, first_result.name, sep=': ')
